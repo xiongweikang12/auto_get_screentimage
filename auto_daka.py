@@ -181,9 +181,9 @@ def other_screen():
     logg.debug('进入网站')
 
     def login_sys():
-        student_name='熊伟康'
-        student_id='20220220'
-        class_ip='012243547'
+        student_name='student_name'
+        student_id='student_id'
+        class_ip='class_ip'
         dirver.find_element_by_xpath('//*[@id="207052557"]/div[2]/div/div/input').send_keys(student_name)
         time.sleep(1)
         dirver.find_element_by_xpath('//*[@id="207052558"]/div[2]/div/div/input').send_keys(student_id)
@@ -194,7 +194,7 @@ def other_screen():
         logg.debug('填写信息')
 
         def copy_image():
-            pyperclip.copy(r'D:\python\pythonProject4\自动化\20220220熊伟康1.jpg')
+            pyperclip.copy('the file path which you want to keep')
             pyautogui.keyDown('ctrl')
             pyautogui.keyDown('v')
             pyautogui.keyUp('v')
@@ -258,10 +258,10 @@ def other_screen():
         time.sleep(1)
         full_size_screenshot()
         time.sleep(1)
-        search_image('20220220熊伟康2.png')
+        search_image('file_name1')
         time.sleep(3)
         comfirm_up()
-        search_image('20220220熊伟康3.png')
+        search_image('file_name2')
         time.sleep(3)
 
 
@@ -301,8 +301,8 @@ def send_email(): #'file_name' and 'annex_path'
             image = MIMEImage(open(image_path , 'rb').read())
             image.add_header('Content-Disposition', 'attachment', filename=file_name)
             message.attach(image)
-        image_to_eamil('20220220熊伟康2.png')
-        image_to_eamil('20220220熊伟康3.png')
+        image_to_eamil('file_1')
+        image_to_eamil('file_2')
         logg.debug('两个附件')
 
         # 登入邮箱发送报表
@@ -318,11 +318,11 @@ def send_email(): #'file_name' and 'annex_path'
 
 
 
-sender='1761322862@qq.com'
-password='oawciodevrgzdeej'
-smtp_ip='smtp.qq.com'#oiqjlvkaxqkudhib
-receiver=['1761322862@qq.com']
-Cc_receiver=['1761322862@qq.com']
+sender='the email adress of sender'
+password='third party login agreement'
+smtp_ip='smtp.qq.com'#
+receiver=['the email adress of receiver']
+Cc_receiver=['the email adress of Ccreceiver']
 title='青年大学习'
 content='hello ,这是你的截图,hhh'
 ts=datetime.datetime
@@ -334,7 +334,7 @@ if __name__=='__main__':
     print('alright')
     time.sleep(1)
     # 完成后删除相关截图文件
-    for k in list(Path.cwd().glob('*20220220熊伟康*')):
+    for k in list(Path.cwd().glob('*file_*')):
         os.remove(str(k))
     print('del comfirm')
 
